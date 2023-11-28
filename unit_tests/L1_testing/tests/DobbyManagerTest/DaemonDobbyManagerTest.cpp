@@ -190,7 +190,7 @@ void onContainerStopped(int32_t cd, const ContainerId& id, int status)
         p_statsMock = new NiceMock <DobbyStatsMock>;
         p_loggerMock = new NiceMock <DobbyLoggerMock>;
 
-        /*p_dobbyContainer =  DobbyContainer::getInstance();
+        p_dobbyContainer =  DobbyContainer::getInstance();
         EXPECT_NE(p_dobbyContainer, nullptr);
         p_rdkPluginManager =  DobbyRdkPluginManager::getInstance();
         EXPECT_NE(p_rdkPluginManager, nullptr);
@@ -224,7 +224,7 @@ void onContainerStopped(int32_t cd, const ContainerId& id, int status)
         p_legacyPluginManager =  DobbyLegacyPluginManager::getInstance();
         EXPECT_NE(p_legacyPluginManager, nullptr);
         p_stats =  DobbyStats::getInstance();
-        EXPECT_NE(p_stats, nullptr);*/
+        EXPECT_NE(p_stats, nullptr);
 
         p_dobbyContainer->setImpl(p_containerMock);
         p_rdkPluginManager->setImpl(p_rdkPluginManagerMock);
