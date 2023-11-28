@@ -271,6 +271,12 @@ void onContainerStopped(int32_t cd, const ContainerId& id, int status)
     virtual void TearDown()
     {
         dobbyManager_test.reset();
+                
+        p_idobbyenvMock.reset();
+        p_idobbyutilsMock.reset();
+        p_idobbyipcutilsMock.reset();
+        p_idobbysettingsMock.reset();
+
         p_dobbyContainer->setImpl(nullptr);
         p_rdkPluginManager->setImpl(nullptr);
         p_rootfs->setImpl(nullptr);
