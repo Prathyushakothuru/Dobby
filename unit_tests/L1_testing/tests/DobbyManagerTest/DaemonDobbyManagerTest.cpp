@@ -1897,9 +1897,8 @@ TEST_F(DaemonDobbyManagerTest, startContainerFromBundle_SuccessWithoutRdkPlugins
     std::vector<std::string> envVars;
     envVars = {"PATH=/usr/bin", "HOME=/home/user"};
 
-
     int result = dobbyManager_test->startContainerFromBundle(id,bundlePath,files,command,displaySocket,envVars);
-     std::cout << "Result: " << result << std::endl; // Add this print statement
+    std::cout << "Result: " << result << std::endl; // Add this print statement
 
     EXPECT_NE(result, -1);
     std::cout << "Result check passed" << std::endl; // Add this print statement
