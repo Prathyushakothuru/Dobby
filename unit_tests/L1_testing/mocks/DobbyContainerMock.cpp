@@ -24,9 +24,19 @@ DobbyContainer::DobbyContainer(): descriptor(0)
 {
 }
 
-DobbyContainer::DobbyContainer(const std::shared_ptr<const DobbyBundle>& _bundle,const std::shared_ptr<const DobbyConfig>& _config,const std::shared_ptr<const DobbyRootfs>& _rootfs):descriptor(0)
+DobbyContainer::DobbyContainer(const std::shared_ptr<const DobbyBundle>& _bundle,
+                               const std::shared_ptr<const DobbyConfig>& _config,
+                               const std::shared_ptr<const DobbyRootfs>& _rootfs)
+    : descriptor(0)
+    , bundle(_bundle)
+    , config(_config)
+    , rootfs(_rootfs)
+    , containerPid(-1)
+    , hasCurseOfDeath(false)
+    , state(State::Starting)
 {
 }
+
 
 DobbyContainer::DobbyContainer(const std::shared_ptr<const DobbyBundle>& _bundle,
                                const std::shared_ptr<const DobbyConfig>& _config,
