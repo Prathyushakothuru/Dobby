@@ -236,11 +236,15 @@ protected:
                 .WillOnce(::testing::Return(expectedWorkDir));
 
             dobbyManager_test = std::make_shared<NiceMock<DobbyManager>>(p_env,p_utils,p_ipcutils,p_dobbysettingsMock,startcb,stopcb);
+            /* Github issue: 294: pthread_kill() is failing in stopRuncMonitorThread() which is calling from destructor.
+            * runcMonitorThread() is starting late, with in the time, if dobbymanager object is deleted, pthread_kill() is failing because the thread is not yet started.
+            * 10ms sleep is added to avoid the time issue */
+            usleep(10000);
+
         }
 
         virtual void TearDown()
         {
-            usleep(10000);
             dobbyManager_test.reset();
 
             p_dobbyContainer->setImpl(nullptr);
